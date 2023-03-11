@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ya.bosssave.mapper.SystemUserMapper">
+
+    <resultMap id="userSystem" type="com.ya.bosssave.pojo.SystemUser">
+        <id property="id" column="_id"/>
+        <result property="account" column="account"/>
+        <result property="password" column="password"/>
+    </resultMap>
+
+    <select id="queryUser" resultMap="userSystem">
+        select * from systemUser where account = #{account} and password = #{password}
+    </select>
+
+    <select id="queryUserByIdAccount" resultMap="userSystem">
+        select * from systemUser where _id = #{id} and account = #{account}
+    </select>
+</mapper>
+

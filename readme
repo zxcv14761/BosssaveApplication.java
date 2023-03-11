@@ -1,0 +1,18 @@
+JDK 18.0.1
+springboot版本 2.7.5
+mySQL 8
+
+table create script
+
+CREATE TABLE systemUser  (
+  `_id` int NOT NULL AUTO_INCREMENT COMMENT 'UUID',
+  `account` varchar(128) NULL COMMENT '帳號' UNIQUE,
+  `password` varchar(128) NULL COMMENT '密碼',
+  PRIMARY KEY (`_id`)
+);
+
+CREATE TABLE goods  (
+  `_id` int NOT NULL AUTO_INCREMENT COMMENT 'UUID',
+  `name` varchar(128) NOT NULL COMMENT '商品名' ,
+  PRIMARY KEY (`_id`)
+);

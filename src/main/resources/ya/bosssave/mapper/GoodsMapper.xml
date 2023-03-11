@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ya.bosssave.mapper.GoodsMapper">
+
+    <resultMap id="goods" type="com.ya.bosssave.pojo.Goods">
+        <id property="id" column="_id"/>
+        <result property="name" column="name"/>
+    </resultMap>
+
+    <insert id="addGoods">
+        insert into goods (name) value (#{goods_name})
+    </insert>
+    <update id="modifyGoods">
+        update goods set goods.name = #{goods_name} where _id = #{id}
+    </update>
+    <delete id="delGoodsById">
+        delete from goods where _id = #{id}
+    </delete>
+    <select id="findGoodsByName" resultMap="goods">
+        select * from goods where name = #{goods_name} limit 1
+    </select>
+    <select id="findAllGoods" resultMap="goods">
+        select * from goods
+    </select>
+    <select id="findGoodsById" resultMap="goods">
+        select * from goods where _id = #{id}
+    </select>
+
+</mapper>
